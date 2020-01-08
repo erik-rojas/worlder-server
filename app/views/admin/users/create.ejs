@@ -1,0 +1,212 @@
+<% extend('../layouts/base') %>
+<div style=" margin: 0 auto; text-align: center;">
+  <h1 style="color: darkblue;">Create new user</h1>
+    <button type="button" class="btn btn-outline-secondary" onclick="document.getElementById('id01').style.display='block'" style=" text-align: center; width:auto;">Create JobSeeker</button>
+    <button type="button" class="btn btn-outline-secondary" onclick="document.getElementById('id02').style.display='block'" style=" text-align: center; width:auto">Create Company</button>
+</div>
+
+
+<div id="id01" class="modal">
+    
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <div class="users" style="margin-left:10%;">
+    <form class="modal-content" action="/admin/users/create/seeker" method="POST">
+      <h3 style="color: darkblue; margin: 0 auto;">Create JobSeeker</h3>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="">Name (*): </label>
+            <input class="form-control" type="text" name="name" placeholder="Name"/>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="">Email (*): </label>
+            <input class="form-control" type="text" name="email" placeholder="Email" data-validation="email" />
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="">Password (*): </label>
+            <input id="inputPassword1" class="form-control" type="password" name="password" placeholder="Password"
+              data-validation="length alphanumeric" data-validation-length="min6" />
+          </div>
+        </div>
+
+
+
+
+
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="">Birthday: </label>
+            <div class="input-group date">
+              <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+              <input type="text" class="form-control pull-right" id="datepicker" name="birthday" />
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="">Phone Number: </label>
+            <input class="form-control" type="text" name="phone" placeholder="Phone Number" />
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="">Address: </label>
+            <input class="form-control" type="text" name="address" placeholder="Address" />
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="btn_submit">
+            <button id="btn-submit" class="btn btn-block btn-rounded btn-success btn-lg">
+              Create
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+</div>
+
+
+<div id="id02" class="modal">
+  <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <div class="users" style="margin-left:10%;">
+    <form class="modal-content" action="/admin/users/create/company" method="POST">
+      <h3 style="color: darkblue; margin: 0 auto;">Create Company</h3>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="">Name (*): </label>
+            <input class="form-control" type="text" name="name" placeholder="Name" />
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="">Email (*): </label>
+            <input class="form-control" type="text" name="email" placeholder="Email" data-validation="email" />
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="">Password (*): </label>
+            <input id="inputPassword1" class="form-control" type="password" name="password" placeholder="Password"
+              data-validation="length alphanumeric" data-validation-length="min6" />
+          </div>
+        </div>
+
+
+        <!-- <div class="col-sm-6">
+          <div class="form-group">
+            <label>Status: </label>
+            <select class="form-control" name="status">
+              <option value="blocked">Blocked</option>
+              <option value="actived">Actived</option>
+              <option value="pending">Pending</option>
+            </select>
+          </div>
+        </div> -->
+
+
+
+
+
+
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="">Address: </label>
+            <input class="form-control" type="text" name="address" placeholder="Address" />
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="">Phone Number: </label>
+            <input class="form-control" type="text" name="phone" placeholder="Phone Number" />
+          </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+              <label for="">Description: </label>
+              <input class="form-control" type="text" name="description" placeholder="Description" />
+            </div>
+          </div>
+
+
+        <div class="col-12">
+          <div class="btn_submit">
+            <button id="btn-submit" class="btn btn-block btn-rounded btn-success btn-lg">
+              Create
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="form-group">
+          <label>Role: </label>
+          <select class="form-control" name="role">
+            <option value="ADMIN">ADMIN</option>
+            <option class="MOD">MOD</option>
+            <option class="CUSTOMER">CUSTOMER</option>
+            <option class="ENTERTAINER">ENTERTAINER</option>
+          </select>
+        </div> -->
+    </form>
+  </div>
+
+</div>
+
+<script>
+  // Get the modal
+  var modal = document.getElementById('id01');
+  var modal2 = document.getElementById('id02');
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  window.onclick = function (event) {
+    if (event.target == modal2) {
+      modal2.style.display = "none";
+    }
+  }
+</script>
+
+
+
+<!-- sciprt -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+
+<script>
+  $.validate();
+
+  $(document).ready(function () {
+    $("#datepicker").datepicker({
+      uiLibrary: "bootstrap4"
+    });
+
+    $("#btn-submit").click(() => {
+      console.log("ahihi");
+      // toastr.info("Are you the 6 fingered man?");
+    });
+  });
+</script>
+<!--  -->
+<!-- end script -->

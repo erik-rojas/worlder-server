@@ -1,0 +1,140 @@
+.cv-template-container {
+	font-size: 14px;
+	font-family: "Roboto";
+}
+
+.cv-template-container p,
+.cv-template-container h1,
+.cv-template-container h2,
+.cv-template-container h3,
+.cv-template-container h4,
+.cv-template-container h5,
+.cv-template-container h6,
+.cv-template-container img,
+.cv-template-container div,
+.cv-template-container ul,
+.cv-template-container li {
+	border:0;
+	font:inherit;
+	margin:0;
+	padding:0;
+	vertical-align:baseline;
+	color: initial;
+	font-size: inherit;
+}
+
+.cv-template-container .clear {clear: both;}
+
+.cv-template-container p {
+	margin-bottom: 20px;
+	color: #444;
+}
+
+.cv-template-container #cv {
+	width: 90%;
+	max-width: 800px;
+	margin: 30px auto;
+}
+
+.cv-template-container .mainDetails {
+	padding: 25px 35px;
+}
+
+.cv-template-container #name h1 {
+	font-weight: 700;
+	margin-bottom: -6px;
+	font-size: 34px;
+	color: #fff;
+}
+
+.cv-template-container #name h2 {
+	margin-left: 2px;
+	font-size: 16px;
+	margin-top: 3px;
+	color: #fff;
+}
+
+.cv-template-container #mainArea {
+	padding: 0 40px;
+}
+
+.cv-template-container #headshot {
+	width: 12.5%;
+	float: left;
+	margin-right: 30px;
+}
+
+.cv-template-container #headshot img {
+	width: 100%;
+	height: auto;
+	-webkit-border-radius: 50px;
+	border-radius: 50%;
+}
+
+.cv-template-container #name {
+	float: left;
+}
+
+.cv-template-container #contactDetails {
+	float: right;
+	font-size: 14px;
+}
+
+.cv-template-container #contactDetails ul {
+	list-style-type: none;
+	margin-top: 2px;
+}
+
+.cv-template-container #contactDetails ul li {
+	margin-bottom: 3px;
+	color: #fff;
+}
+
+.cv-template-container section {
+	border-top: 1px solid #dedede;
+	padding: 20px 0 0;
+}
+
+.cv-template-container section:first-child {
+	border-top: 0;
+}
+
+.cv-template-container section:last-child {
+	padding: 20px 0 10px;
+}
+
+.cv-template-container .sectionTitle {
+	float: left;
+	width: 25%;
+	font-size: 20px;
+	text-transform: uppercase;
+}
+
+.cv-template-container .sectionContent {
+	float: right;
+	width: 72.5%;
+}
+
+.cv-template-container .sectionTitle h1 {
+	font-style: italic;
+}
+
+.cv-template-container .sectionContent h2 {
+	margin-bottom: -2px;
+	font-weight: bold;
+}
+
+.cv-template-container .subDetails {
+	font-style: italic;
+	margin-bottom: 3px;
+}
+
+.cv-template-container .keySkills {
+	list-style-type: none;
+	margin-bottom: 20px;
+	color: #444;
+}
+
+.cv-template-container .keySkills li {
+	margin-bottom: 5px;
+}

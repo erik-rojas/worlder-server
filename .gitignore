@@ -1,0 +1,16 @@
+# SERVER
+node_modules
+.env
+/test-game
+assets/uploads
+
+#logs
+/logs
+
+# scripts
+scripts
+
+# lock
+package-lock.json
+yarn.lock
+

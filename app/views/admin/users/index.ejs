@@ -1,0 +1,154 @@
+<% extend('../layouts/base') %>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdn.datatables.net/select/1.2.7/css/select.bootstrap4.min.css"
+/>
+
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+
+<div class="box">
+  <div class="box-header with-border">
+    <h3 class="box-title">Users Manager</h3>
+    <div class="box-tools">
+      <div class="input-group input-group-sm" style="width: 150px;">
+        <button id="button" type="button" class="btn btn-block btn-danger">
+          <i class="fa fa-trash"></i> Delete
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- /.box-header -->
+  <div class="box-body">
+    <div class="table-responsive">
+      <table id="example" class="table table-hover display">
+        <thead>
+          <tr>
+            <th class="dp-none" scope="col">ID</th>
+            <th class="col_email" scope="col">Name</th>
+            <th class="col_email" scope="col">Email</th>
+            <th class="col_role" scope="col">Address</th>
+            <th class="col_role" scope="col">Phone Number</th>
+            <th class="col_role" scope="col">Role</th>
+            <th class="col_updated" scope="col">Updated</th>
+            <th class="col_action" scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% users.forEach(function(user) { %>
+          <tr>
+              <td class="dp-none"><%= user._id %></td>
+            <td class="col_email"><%= user.name %></td>
+            <td class="col_email"><%= user.email %></td>
+            <td class="col_role"><%= user.address %></td>
+            <td class="col_role"><%= user.phone %></td>
+            <td class="col_role"><%= user.role %></td>
+            <td class="col_updated">
+              <%= moment(user.updatedAt).format('MM/DD/YYYY') %>
+            </td>
+            <td class="col_action">
+              <a
+                href="/admin/users/<%= user._id %>"
+                class="btn btn-block btn-rounded btn-success btn-sm"
+                >View</a
+              >
+            </td>
+          </tr>
+          <%}); %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- /.box-body -->
+</div>
+
+<!-- modal confirm delete -->
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="confrimRemove"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="confrimRemoveLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confrimRemoveLabel">Modal title</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">...</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+    $("#search").click(() => {
+      toastr.info("Are you the 6 fingered man?");
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function() {
+    var table = $("#example").DataTable();
+
+    $("#example tbody").on("click", "tr", function() {
+      $(this).toggleClass("selected");
+    });
+
+    $("#button").click(function() {
+      const length = table.rows(".selected").data().length;
+      const _data = table.rows(".selected").data();
+      let _arr = [];
+      for (let i = 0; i < length; i++) {
+        _arr.push(_data[i][0]);
+      }
+
+      $.ajax({
+        type: "POST",
+        url: "/admin/users/delete-records",
+        data: {_arr},
+        dataType: "text",
+        success: function(result) {
+          if(result){
+            toastr.success("Deleted successfully");
+            table.rows('.selected').remove().draw( false );
+          } else {
+            toastr.error("Deleted error");
+          }
+        }
+      });
+    });
+  });
+</script>

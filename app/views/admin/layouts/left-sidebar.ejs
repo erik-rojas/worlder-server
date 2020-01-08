@@ -1,0 +1,126 @@
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+  <!-- sidebar -->
+  <section class="sidebar">
+    <!-- Sidebar user panel -->
+    <div class="user-panel">
+      <div class="ulogo">
+        <a href="/admin">
+          <!-- logo for regular state and mobile devices -->
+          <span><b>DaNangJOB </b>Admin</span>
+        </a>
+      </div>
+      <div class="image">
+        <img src="<%= userLocal.avatar %>" class="rounded-circle" alt="User Image" />
+      </div>
+      <div class="info">
+        <!-- <h3><%= userLocal.first_name %> <%= userLocal.last_name %></h3> -->
+        <p><%= userLocal.email %></p>
+        <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Settings"><i
+            class="ion ion-gear-b"></i></a>
+        <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Email"><i
+            class="ion ion-android-mail"></i></a>
+        <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i
+            class="ion ion-power"></i></a>
+      </div>
+    </div>
+    <!-- sidebar menu -->
+    <ul class="sidebar-menu" data-widget="tree">
+      <li class="nav-devider"></li>
+      <li class="header nav-small-cap">Menu</li>
+
+      <!-- users -->
+      <li class="treeview">
+        <a href="#">
+          <i class="icon-user"></i> <span>Users</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/admin/users/create">Create User</a></li>
+          <li><a href="/admin/users">All Users</a></li>
+        </ul>
+      </li>
+
+      <!-- users -->
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-user-md"></i> <span>Jobs</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/admin/jobs/create">Create Job</a></li>
+          <li><a href="/admin/jobs">All Jobs</a></li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-user"></i> <span>Categories</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/admin/categories/create">Create Categories</a></li>
+          <li><a href="/admin/categories">All Categories</a></li>
+        </ul>
+      </li>
+
+
+      <!-- categories -->
+      <!-- <li class="treeview">
+        <a href="#">
+          <i class="icon-list"></i> <span>Categories</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="treeview">
+            <a href="#">Categories
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu" style="display: none;">
+              <li><a href="/admin/categories/create">Create</a></li>
+              <li><a href="/admin/categories">All</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li> -->
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-user-md"></i> <span>Applications</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/admin/applications">All Applications</a></li>
+        </ul>
+      </li>
+
+
+
+    </ul>
+  </section>
+</aside>
+
+<script>
+  // const  $('.sidebar-menu').find("a").attr("href");
+  let pathname = window.location.pathname;
+  let text = "a[href$='" + pathname + "']";
+  $(text)
+    .parent()
+    .addClass("active");
+  $(text)
+    .parent()
+    .parent()
+    .parent()
+    .addClass("active");
+</script>

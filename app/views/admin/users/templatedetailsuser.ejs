@@ -1,0 +1,457 @@
+<% extend('../layouts/base') %>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<section class="content">
+  <div class="row">
+    <div class="col-xl-4 col-lg-5">
+      <!-- Profile Image -->
+      <div class="box">
+        <div class="box-body box-profile">
+          <form id="form-avatar" action="/admin/upload-image/<%= user._id %>" method="POST" enctype="multipart/form-data">
+              <div id="avatar">
+                  <img
+                    id="srcAvt"
+                    class="profile-user-img rounded img-fluid mx-auto d-block"
+                    src="../../../images/avt.png"
+                    alt="User profile picture"
+                  />
+                  <a id="actUpload" title="Change Avatar"><i class="fa fa-photo"></i></a>
+                  <input type="file" name="avatar" id="fileAvt" style="display: none;">
+                </div>
+          </form>
+
+
+          <h2 class="profile-username text-center mb-0"><%= user.username %></h2>
+          <!-- <h4 class="profile-role text-center mb-0"></h42> -->
+
+          <h6 class="text-center">
+            <span style="font-style: italic; color: #999;"><%= user.role %> </span>
+            <% if (user.status == "blocked") { %>
+            <span class="label label-danger"><%= user.status %></span> <% } else
+            if(user.status == "pending") { %>
+            <span class="label label-warning"><%= user.status %></span> <% }
+            else { %>
+            <span class="label label-success"><%= user.status %></span> <% } %>
+          </h6>
+
+          <h4 class="text-muted text-center mt-0">
+            <i class="fa fa-envelope-o mr-10"></i> <%= user.email %>
+          </h4>
+
+          <div class="row social-states">
+            <div class="col-6 text-right">
+              <a href="#" class="link"
+                ><i class="ion ion-ios-people-outline"></i> 254</a
+              >
+            </div>
+            <div class="col-6 text-left">
+              <a href="#" class="link"><i class="ion ion-images"></i> 54</a>
+            </div>
+          </div>
+
+          <div class="row text-center mt-15">
+            <button
+              type="button"
+              class="btn btn-block btn-danger btn-lg"
+              data-toggle="modal"
+              data-target=".bd-example-modal-sm"
+            >
+              <i class="fa fa-trash"></i> Delete
+            </button>
+          </div>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+    </div>
+    <!-- /.col -->
+    <div class="col-xl-8 col-lg-7">
+        <form action="/admin/users/<%= user._id %>/update" method="POST">
+
+      <div class="box box-solid bg-black">
+        <div class="box-header with-border">
+          <h3 class="box-title">Personal details</h3>
+        </div>
+
+        <!-- id user -->
+        <input type="password" name="_id" value="<%= user._id%>" style="display: none;">
+        <!-- /.box-header -->
+        <div class="box-body">
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">First Name</label>
+                  <div class="col-sm-10">
+                    <input class="form-control" name="first_name" value="<%= user.first_name %>" type="text" placeholder="Johon" />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Last Name</label>
+                  <div class="col-sm-10">
+                    <input class="form-control" name="last_name" value="<%= user.last_name %>" type="text" placeholder="Doe" />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Email Adress</label>
+                  <div class="col-sm-10">
+                    <input
+                      class="form-control"
+                      type="email"
+                      placeholder="johone@dummy.com"
+                      value="<%= user.email %>"
+                      placeholder="Email"
+                      data-validation="email"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="">Birthday: </label>
+                    <div class="col-sm-10 input-group date">
+                      <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                      <input
+                        type="text"
+                        class="form-control pull-right"
+                        id="datepicker"
+                        name="birthday"
+                        value="<%= moment(user.birthday).format('MM/DD/YYYY') %>"
+                      />
+                    </div>
+                  </div>
+
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Phone Number</label>
+                  <div class="col-sm-10">
+                    <input
+                      class="form-control"
+                      type="tel"
+                      name="phone"
+                      placeholder="123 456 7890"
+                      value="<%= user.phone %>"
+                    />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Status</label>
+                  <div class="col-sm-10">
+                    <select class="form-control" name="status">
+                      <option value="blocked" <% if(user.status == 'blocked') { %> selected <% } %> </option> Blocked</option>
+                      <option value="actived" <% if(user.status == 'actived') { %> selected <% } %> </option> Actived</option>
+                      <option value="pending" <% if(user.status == 'pending') { %> selected <% } %> </option> Pending</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Address</label>
+                    <div class="col-sm-10">
+                      <input
+                        class="form-control"
+                        type="tel"
+                        name="address"
+                        placeholder="Address"
+                        value="<%= user.address %>"
+                      />
+                    </div>
+                  </div>
+
+              </div>
+              <!-- /.col -->
+            </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.box-body -->
+
+        <div class="box-header with-border">
+            <h3 class="box-title">Update Password</h3>
+          </div>
+          <div class="box-body">
+              <div class="row">
+                <div class="col-12">
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Password</label>
+                        <div class="col-sm-10">
+                            <input
+                            id="inputPassword1"
+                            class="form-control"
+                            type="password"
+                            name="password"
+                            placeholder="Password"
+                          />
+                        </div>
+                      </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Confirm Password</label>
+                        <div class="col-sm-10">
+                            <input
+                            class="form-control"
+                            type="password"
+                            name="re_password"
+                            placeholder="Confirm Password"
+                          />
+                        </div>
+                      </div>
+                </div>
+              </div>
+            </div>
+              <!-- company -->
+              <% if(company) { %>
+              <div class="box-header with-border">
+                <h3 class="box-title">Company</h3>
+              </div>
+
+              <div class="box-body">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="form-group row">
+                      <div class="col-sm-2">
+                        <label for="">Act Name</label>
+                      </div>
+                      <div class="col-sm-10">
+                        <input type="password" name="company_id" value="<%= company._id %>" style="display: none;" >
+                        <input class="form-control" type="text" name="act_name" value="<%= company.act_name %>">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group row">
+                      <div class="col-sm-2">
+                        <label for="">Act Description</label>
+                      </div>
+                      <div class="col-sm-10">
+                        <input class="form-control" type="text" name="act_description"  value="<%= company.act_description %>">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group row">
+                      <div class="col-sm-2">
+                        <label for="">Act Tags</label>
+                      </div>
+                      <div class="col-sm-10">
+                        <input class="form-control" type="text" name="act_tags"  value="<%= company.act_tags %>">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group row">
+                      <div class="col-sm-2">
+                        <label for="">Act background</label>
+                      </div>
+                      <div class="col-sm-10">
+                        <input class="form-control" type="text" name="act_background"  value="<%= company.act_background %>">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group row">
+                      <div class="col-sm-2">
+                        <label for="">Act Type</label>
+                      </div>
+                      <div class="col-sm-10">
+                        <select class="form-control" type="text" name="act_type">
+                        
+                            </select>
+                      </div>
+                    </div>
+                  </div>
+                 
+                  <div class="col-12">
+                    <div class="form-group row">
+                      <div class="col-sm-2">
+                        <label for="">Bonus times</label>
+                      </div>
+                      <div class="col-sm-10">
+                        <input class="form-control" type="number" min="0" name="bonus_times"  value="<%= company.bonus_times %>">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group row">
+                      <div class="col-sm-2">
+                        <label for="">Rate</label>
+                      </div>
+                      <div class="col-sm-10">
+                        <input class="form-control" type="number" min="0" max="5" name="rate"  value="<%= company.rate %>">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group row">
+                      <div class="col-sm-2">
+                        <label for="">Have Equipment</label>
+                      </div>
+                      <div class="col-sm-10">
+                        <input name="have_equipment" style="display: none;" />
+                       
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <% } %>
+
+              <div class="box-body">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                      <a id="update-profile" class="btn btn-yellow" style="color: #fff;">Update</a>
+                    </div>
+                  </div>
+              </div>
+      </div>
+      <!-- /.box -->
+      </form>
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
+</section>
+
+<div
+  class="modal fade bd-example-modal-sm"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="mySmallModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title h4" id="mySmallModalLabel">Are you sure?</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/admin/users/<%= user._id %>/delete" method="POST">
+          <button
+            type="submit"
+            class="btn btn-rounded btn-danger w-150 float-left color-fff"
+          >
+            Ok
+          </button>
+          <button
+            type="button"
+            data-dismiss="modal"
+            class="btn btn-rounded btn-default w-150 float-right"
+          >
+            Cancel
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- sciprt -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+
+<script>
+  $.validate();
+
+  $(document).ready(function() {
+    $("#datepicker").datepicker({
+      uiLibrary: "bootstrap4"
+    });
+
+   
+    $("#avatar").hover(() => {
+      $("#avatar a").css("display", "flex");
+    }, () => {
+      $("#avatar a").css("display", "none");
+    });
+      
+    $('#actUpload').click(() => {
+      $("#fileAvt").trigger("click");
+      $("#fileAvt").change(e => {
+        $("#form-avatar").submit();
+      })
+    })
+
+    // submit profile
+    $("#update-profile").click(() => {
+      let _id = $("input[name=_id]").val();
+      let first_name = $("input[name=first_name]").val();
+      let last_name = $("input[name=last_name]").val();
+      let email = $("input[name=email]").val();
+      let birthday = $("input[name=birthday]").val();
+      let phone = $("input[name=phone]").val();
+      let status = $("select[name=status]").val();
+      let address = $("input[name=address]").val();
+      let password = $("input[name=password]").val();
+      let re_password = $("input[name=re_password]").val();
+      // scoial
+      let facebook = $("input[name=facebook]").val();
+      let instagram = $("input[name=instagram]").val();
+      let twitter = $("input[name=twitter]").val();
+      let linkedin = $("input[name=linkedin]").val();
+      let youtube = $("input[name=youtube]").val();
+
+      // company
+      // let company_id = $("input[name=company_id]").val();
+      // let act_name = $("input[name=act_name]").val();
+      // let act_description = $("input[name=act_description]").val();
+      // let act_tags = $("input[name=act_tags]").val();
+      // let act_background = $("input[name=act_background]").val();
+      // let act_type_id = $("select[name=act_type_id]").val();
+      // let plan_id = $("select[name=plan_id]").val();
+      // let bonus_times = $("input[name=bonus_times]").val();
+      // let rate = $("input[name=rate]").val();
+      // let have_equipment = $("input[name=have_equipment]").val();
+
+      // let company_obj = {
+      //   act_name,
+      //   act_description,
+      //   act_tags,
+      //   act_background,
+      //   act_type_id,
+      //   plan_id,
+      //   bonus_times,
+      //   rate,
+      //   have_equipment,
+      // }
+
+      let user_obj = {
+        first_name,
+        last_name,
+        email,
+        birthday,
+        phone,
+        status,
+        address,
+        password,
+        re_password,
+      }
+
+      let _data = {
+        user: user_obj,
+      };
+
+      // if(company_id != ""){
+      //   _data.company = company_obj;
+      // }
+
+      $.post(`/admin/users/${_id}/update`, _data, function(data,status){
+          if(status === "success"){
+            toastr.success("Updated successfully!");
+          } else {
+            toastr.error("Updated error!")
+          }
+        });
+        title
+    })
+  });
+
+  
+ 
+</script>

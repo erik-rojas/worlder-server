@@ -1,0 +1,307 @@
+.iw-job-advanced_search .categories .selection .select2-selection--multiple {
+    height: 38px;
+}
+
+.iw-job-advanced_search .categories .selection .select2-selection--multiple .select2-selection__rendered {
+    display: flex;
+    line-height: 32px;
+}
+
+.iw-job-advanced_search .categories .selection .select2-selection--multiple .select2-selection__rendered:hover {
+    overflow-x: auto;
+}
+
+.iw-job-advanced_search .categories .selection .select2-selection--multiple .select2-selection__rendered::-webkit-scrollbar { 
+    /* background-color: #F5F5F5; */
+    height: 8px;
+    cursor: pointer;
+}
+
+.iw-job-advanced_search .categories .selection .select2-selection--multiple .select2-selection__rendered::-webkit-scrollbar-track { 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.iw-job-advanced_search .categories .selection .select2-selection--multiple .select2-selection__rendered::-webkit-scrollbar-thumb { 
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
+.iw-job-advanced_search .categories .selection .select2-selection--multiple .select2-selection__rendered .select2-search { 
+    max-width: calc(100% - 15px);
+}
+
+.iw-job-advanced_search .categories .selection .select2-selection--multiple .select2-selection__rendered .select2-search input { 
+    max-width: calc(100% - 15px);
+}
+/*dropdown*/
+.profile_user{
+    display: inline-block;
+    position: relative;
+}
+.profile_user .dropdown-menu{
+    background-color: #303f45db;
+    min-width: 180px;
+    margin: 0;
+}
+.iw-top-bar-wrapper .top-bar-right .register-login .dropdown-menu a{
+    width: 100%;
+    padding: 5px 16px;
+}
+.iw-top-bar-wrapper .top-bar-right .register-login .dropdown-menu a:hover{
+    background: #303f45;
+    color: #2980b9;
+    border-radius: 0;
+}
+.iw-top-bar-wrapper .top-bar-right .register-login .dropdown-menu a i{
+    margin-right: 10px;
+}
+.text-f-sm{
+    font-size: 12px;
+}
+.btn-post-job-i{
+    border: 2px solid #3fff00;
+    padding: 12px;
+    border-radius: 5px;
+    background: #3fff00;
+}
+
+/* records manage by MrTriet */
+.records_manage .iwj-main-block{
+    padding: 15px;
+    margin: 5px;
+}
+.records_manage .mt-n{
+    margin: 0;
+    font-size: 18px;
+}
+.records_manage hr {
+    margin: 10px 0;
+}
+.title_cv_online{
+    font-size: 14px;
+    line-height: 24px;
+}
+.records_manage .mt-40{
+    margin-top: 40px;
+}
+.records_manage .el-button{
+    color: #fff;
+    background-color: #009ce0;
+    border-color: #009ce0;
+    padding: 10px 20px !important;
+    margin: 0 5px;
+    border-radius: 4px;
+    line-height: 18px;
+    display: inline-block;
+}
+.records_manage .el-button:hover {
+    background-color: #0c79a9;
+}
+.records_manage .wr_btn{
+    padding: 15px 0 25px 0;
+    float: left;
+}
+.iwj-dashboard-main-inner{
+    min-height: auto !important;
+    overflow: hidden;
+}
+.process-step .btn:focus{
+    outline:none
+}
+.process{
+    display:table;
+    width:100%;
+    position:relative
+}
+.process-row{
+    display:table-row
+}
+.process-step button[disabled]{
+    opacity:1 !important;
+    filter: alpha(opacity=100) !important
+}
+.process-row:before{
+    top:40px;
+    bottom:0;
+    position:absolute;
+    content:" ";
+    width:100%;
+    height:1px;
+    background-color:#ccc;
+    z-order:0
+}
+.process-step{
+    display:table-cell;
+    text-align:center;
+    position:relative
+}
+.process-step p{
+    margin-top: 15px !important;
+    line-height: 15px;
+}
+.btn-circle{
+    width:80px;
+    height:80px;
+    text-align:center;
+    font-size:12px;
+    border-radius:50%
+}
+/**/
+.records_manage .switch {
+  position: relative;
+  display: inline-block;
+  width: 41px;
+  height: 19px;
+}
+
+.records_manage .switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.records_manage .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.records_manage .slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 0px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.records_manage input:checked + .slider {
+  background-color: #2196F3;
+}
+
+.records_manage input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+.records_manage input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.records_manage .toolbox{
+    overflow: hidden;
+}
+
+/* Rounded sliders */
+.records_manage .slider.round {
+  border-radius: 13px;
+}
+
+.records_manage .slider.round:before {
+  border-radius: 50%;
+}
+.records_manage .offOn{
+    line-height: 19px;
+    position: absolute;
+    bottom: -30px;
+}
+.records_manage .wrap-info{
+    position: relative;
+}
+
+.btn-add-cv, .btn-download-cv, .btn-view-cv{
+    padding: 5px 10px !important;
+    border: 0 !important;
+}
+#modalCV .modal-header{
+    background: #009ce0;
+}
+#modalCV .cv-delete-button{
+    background: red;
+    border: 0;
+}
+#modalCV thead tr td{
+    font-weight: bold;
+}
+.modal-dialog-cv{
+    width: 800px;
+}
+.modal-dialog-cv table td{
+    padding: 5px 8px !important;
+}
+
+.iwj-dashboard-main table tr td{
+    padding: 5px 8px !important;
+}
+/*left bar*/
+.wr_info{
+    overflow: hidden;
+    width: 100%;
+}
+.wr_progress {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 15px;
+    color: #fff;
+
+}
+.wr_progress p{
+    width: 100%;
+}
+.wr_progress p > span{
+    display: inline-block;
+    float: right;
+}
+.iwj-dashboard-sidebar .progress{
+  width: 100%;
+  margin-bottom: 0;
+  height: 7px;
+  border-radius: 10px;
+}
+/*candidates/view*/
+.iw-job-detail.v2 .page-heading-content .info-job {
+    float: left;
+    /* width: calc(65% - 220px); */
+}
+.iw-job-detail .records-info .job-detail-about .item{
+  padding: 20px 0 !important;
+}
+#records_info{
+  display: none;
+}
+.iwj-candicate-detail .format_infor ul.time-line li{
+  margin-bottom: 20px;
+}
+.iwj-candicate-detail-v2 .candidate-detail-menu ul.menu{
+  width: 100%;
+}
+.iwj-candicate-detail-v2 .candidate-detail-menu ul.menu li a{
+  padding: 0;
+}
+.iwj-candicate-detail-v2 .candidate-detail-menu ul.menu li{
+  width: 24%;
+}
+.iwj-candicate-detail-v2 .content-top{
+      padding-top: 160px !important;
+}
+.view-candicate-div-right.action-button{
+  float: right !important;
+}
+#inforModal{
+  padding: 0;
+  padding-top: 120px;
+}
+.iwj-candicate-detail-v2 .info-top{
+  margin-bottom: 5px !important;
+}

@@ -1,0 +1,138 @@
+<div id="cv" class="cv-template-container" style="font-family: {{font_family}}; font-size: {{font_size}}px;">
+    <div class="mainDetails" style="background-color: #{{color}}">
+        <div id="headshot" class="quickFade">
+            <img id="avatar" src="{{avatar}}" alt="avatar" />
+        </div>
+        
+        <div id="name">
+            <h1 class="quickFade delayTwo">{{last_name}} {{first_name}}</h1>
+            <h2 class="quickFade delayThree">{{profile_title}}</h2>
+        </div>
+        
+        <div id="contactDetails" class="quickFade delayFour">
+            <ul>
+                <li>Email: <span id="cv-email">{{email}}</span></li>
+                <li>{{title_phone}}: <span id="phone-number">{{phone}}</span></li>
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div>
+    
+    <div id="mainArea" class="quickFade delayFive">
+        <section>
+            <article>
+                <div class="sectionTitle" style="color: #{{color}}">
+                    {{title_objectives}}
+                </div>
+                
+                <div class="sectionContent">
+                    {{career_goals}}
+                </div>
+            </article>
+            <div class="clear"></div>
+            <br>
+        </section>
+
+        <section>
+            <article>
+                <div class="sectionTitle" style="color: #{{color}}">
+                    {{title_personal_infomation}}
+                </div>
+                <div class="sectionContent">
+                    <p>{{title_gender}}: {{gender}}</p>
+                    <p>{{title_birthdate}}: {{birthdate}}</p>
+                    <p>{{title_marital_status}}: {{marital_status}}</p>
+                    <p>{{title_address}}: {{address}}</p>
+                </div>
+            </article>
+            <div class="clear"></div>
+            <br>
+        </section>
+        
+        <section>
+            <article>
+                <div class="sectionTitle" style="color: #{{color}}">
+                    {{title_job_infomation}}
+                </div>
+                <div class="sectionContent">
+                    <p>{{title_hope_level_job}}: {{hope_level_job}}</p>
+                    <p>{{title_salary}}: {{salary}}</p>
+                    <p>{{title_type_of_work}}: {{type_of_works}}</p>
+                    <p>{{title_career}}: {{career}}</p>
+                    <p>{{title_hope_district}}: {{hope_district}}</p>
+                </div>
+            </article>
+            <div class="clear"></div>
+            <br>
+        </section>
+        
+        <section>
+            <div class="sectionTitle" style="color: #{{color}}">
+                {{title_work_experience}}
+            </div>
+            
+            <div class="sectionContent">
+                <p>{{title_experience_year}}: {{experience_year}}</p>
+                <p>{{title_current_rank}}: {{current_rank}}</p>
+                <div>
+                    {{work_experience}}
+                </div>
+            </div>
+            <div class="clear"></div>
+            <br>
+        </section>
+
+        <section style="display: {{skill_display}}">
+            <div class="sectionTitle" style="color: #{{color}}">
+                {{title_skill}}
+            </div>
+            
+            <div class="sectionContent">
+                <ul class="keySkills">
+                    <!-- <li>Giải quyết vấn đề <i>(4/5)</i></li> -->
+                    {{skill}}
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <br>
+        </section>
+
+
+        <section style="display: {{language_display}}">
+            <div class="sectionTitle" style="color: #{{color}}">
+                {{title_language}}
+            </div>
+            
+            <div class="sectionContent">
+                <ul class="keySkills">
+                    {{f_language}}
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <br>
+        </section>
+
+        <section>
+            <div class="sectionTitle" style="color: #{{color}}">
+                {{title_education}}
+            </div>
+            <div class="sectionContent">
+                <div>{{title_max_degree}}: {{max_degree}}</div>
+                {{education}}
+            </div>
+            <div class="clear"></div>
+            <br>
+        </section>
+
+        <section style="display: {{carrer_highlight_display}}">
+            <div class="sectionTitle" style="color: #{{color}}">
+                {{title_career_highlight}}
+            </div>
+            
+            <div class="sectionContent">
+                {{outstanding_achievement}}
+            </div>
+            <div class="clear"></div>
+        </section>
+    </div>
+</div>

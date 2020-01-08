@@ -1,0 +1,69 @@
+.menu-jobseeker a.job-manage{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.menu-jobseeker a.job-manage span{
+   color: white;
+   display: inline-block;
+   width: 10px;
+   height: 10px;
+   border-top: 1px solid white;
+   border-right: 1px solid white;
+   font-weight: bold;
+   position: absolute;
+   right: 5px;
+   top: 6px;
+   transform: rotateZ(-45deg);
+   transition: 0.5s transform;
+}
+
+.menu-jobseeker a.job-manage.collapsed span{
+    transform: rotateZ(135deg);
+    transition: 0.5s transform;
+}
+
+.menu-jobseeker ul.job-manage li{
+    padding: 5px 16px;
+}
+
+.menu-jobseeker ul.job-manage li i{
+    color: white !important;
+}
+
+.menu-jobseeker ul.job-manage li a.active{
+    color:#2980b9;
+}
+
+.table-job .logo{
+    text-align: center;
+}
+
+.table-job th{
+    border-top: 1px solid #EEEEEE !important;
+}
+
+.table-job td, .table-job th{
+    border: 1px solid #EEEEEE;
+    padding: 15px 8px 15px !important;
+}
+
+.table-job tr:hover{
+    background:  #EEEEEE;
+}
+.table-job td h5{
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.modal-view-cv{
+    width: 100%; 
+    height: 100%; 
+    margin: 0
+}
+.modal-view-cv iframe{
+    width: 100%; 
+    min-height:500px; 
+    border:0;
+}

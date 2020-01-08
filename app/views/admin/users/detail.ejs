@@ -1,0 +1,139 @@
+<% extend('../layouts/base') %>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<section class="content">
+  <div class="row">
+
+    <!-- /.col -->
+    <div class="col-xl-8 col-lg-7">
+      <form action="/admin/users/<%= user._id %>/update" method="POST">
+
+        <div class="box box-solid bg-black">
+          <div class="box-header with-border">
+            <h3 class="box-title">User Details</h3>
+          </div>
+
+          <!-- id user -->
+          <input type="password" name="_id" value="<%= user._id%>" style="display: none;">
+          <!-- /.box-header -->
+          <div class="box-body">
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Name</label>
+                  <div class="col-sm-10">
+                    <input class="form-control" name="name" value="<%= user.name %>" type="text" />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Email</label>
+                  <div class="col-sm-10">
+                    <input class="form-control" name="email" value="<%= user.email %>" type="text" />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Address</label>
+                  <div class="col-sm-10">
+                    <input class="form-control" name="address" type="text" value="<%= user.address %>" />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Phone</label>
+                  <div class="col-sm-10">
+                    <input class="form-control" name="phone" type="text" value="<%= user.phone %>" />
+                  </div>
+                </div>
+                
+
+              </div>
+
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.box-body -->
+
+        <div class="box-body">
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+              <a id="update-profile" class="btn btn-yellow" style="color: #fff;">Update</a>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- /.box -->
+    </form>
+  </div>
+  <!-- /.col -->
+  </div>
+  <!-- /.row -->
+</section>
+
+
+<!-- sciprt -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+
+<script>
+  $.validate();
+
+  $(document).ready(function () {
+    $("#datepicker").datepicker({
+      uiLibrary: "bootstrap4"
+    });
+
+
+    $("#avatar").hover(() => {
+      $("#avatar a").css("display", "flex");
+    }, () => {
+      $("#avatar a").css("display", "none");
+    });
+
+    $('#actUpload').click(() => {
+      $("#fileAvt").trigger("click");
+      $("#fileAvt").change(e => {
+        $("#form-avatar").submit();
+      })
+    })
+
+    // submit profile
+    $("#update-profile").click(() => {
+      let _id = $("input[name=_id]").val();
+      let name = $("input[name=name]").val();
+      let email = $("input[name=email]").val();
+      let address = $("input[name=address]").val();
+      let phone = $("input[name=phone]").val();
+   
+      let user_obj = {
+        name,
+        email,
+        address,
+        phone,
+     
+      }
+
+      let _data = {
+        user: user_obj,
+      };
+
+      //   if(company_id != ""){
+      //     _data.company = company_obj;
+      //   }
+
+      $.post(`/admin/users/${_id}/update`, _data, function (data, status) {
+        if (status === "success") {
+          toastr.success("Updated successfully!");
+        } else {
+          toastr.error("Updated error!")
+        }
+      });
+
+    })
+  });
+
+
+
+</script>

@@ -1,0 +1,43 @@
+.users {
+  padding: 24px;
+  background: #fff;
+  table {
+  }
+  .btn_submit {
+    width: 150px;
+    margin: 0 auto;
+  }
+}
+#avatar {
+  width: 180px;
+  margin: 15px auto;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  a {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    font-size: 42px;
+    text-align: center;
+    bottom: 0;
+    align-items: center;
+    /* line-height: 142px; */
+    text-align: center;
+    cursor: pointer;
+    display: none;
+    background: rgba(62, 60, 60, 0.55);
+    color: #fff;
+    i{
+      margin: 0 auto;
+    }
+  }
+  img {
+    width: 100%;
+    margin: 0;
+  }
+}
+.col_action{
+  text-align: right;
+}

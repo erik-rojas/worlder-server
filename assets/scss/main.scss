@@ -1,0 +1,75 @@
+@import "./admin/users.scss";
+@import "./admin/profile.scss";
+@import "./admin/contact.scss";
+
+.boxShadow {
+  -webkit-box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.mt-15{
+  margin-top: 15px;
+}
+.mb-15{
+  margin-bottom: 15px;
+}
+.bt-30{
+  margin-top: 30x;
+}
+.mb-30{
+  margin-bottom: 30px;
+}
+.pt-15{
+  padding-top: 15px;
+}
+.pb-15{
+  padding-bottom: 15px;
+}
+.pt-30{
+  padding-top: 30px;
+}
+.pb-30{
+  padding-bottom: 30px;
+}
+.w-150{
+  width: 150px;
+  display: inline-block !important;
+}
+.float-right{
+  float: right;
+}
+.float-left{
+  float: left;
+}
+.color-fff{
+  color: #fff !important;
+}
+.btn-150{
+  width: 150px;
+  margin: 0 auto;
+  display: inline-block;
+}
+.ta-center{
+  text-align: center;
+}
+.col_action{
+  width: 10% !important;
+}
+.mgl-15{
+  margin-left: 15px;
+}
+.mgr-15{
+  margin-right: 15px;
+}
+.dp-none{
+  display: none;
+}
+table#example{
+  width: 100% !important;
+}
+.width-150{
+  width: 150px !important;
+}
+.fl-right{
+  float: right;
+}
